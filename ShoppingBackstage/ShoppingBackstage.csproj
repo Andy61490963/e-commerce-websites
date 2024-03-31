@@ -11,4 +11,8 @@
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Shopping.lib\Shopping.lib.csproj" />
+  </ItemGroup>
+
 </Project>

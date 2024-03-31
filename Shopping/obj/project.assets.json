@@ -650,12 +650,23 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
+      "Shopping.lib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Shopping.lib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Shopping.lib.dll": {}
+        }
+      },
       "ShoppingBackstage/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
           "Dapper": "2.1.35",
-          "Microsoft.Data.SqlClient": "5.2.0"
+          "Microsoft.Data.SqlClient": "5.2.0",
+          "Shopping.lib": "1.0.0"
         },
         "compile": {
           "bin/placeholder/ShoppingBackstage.dll": {}
@@ -1928,6 +1939,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Shopping.lib/1.0.0": {
+      "type": "project",
+      "path": "../Shopping.lib/Shopping.lib.csproj",
+      "msbuildProject": "../Shopping.lib/Shopping.lib.csproj"
     },
     "ShoppingBackstage/1.0.0": {
       "type": "project",

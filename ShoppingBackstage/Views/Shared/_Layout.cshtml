@@ -161,10 +161,19 @@
                 </button>
                 <ul class="header-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:;" title="">
-                            <span></span>
-                        </a>
-                    </li>
+                        <div class="nav-link">
+                            <span>您的身份 :
+                                @if (User.Identity?.IsAuthenticated == true)
+                                {
+                                    @User.Identity.Name
+                                }
+                                else
+                                {
+                                    @:Guest
+                                }
+                            </span>
+                        </div>
+                    </li>     
                     <li class="nav-item">
                         <a class="nav-link" href="/Login/Logout" title="登出">
                             登出<i class="bi bi-door-closed"></i>

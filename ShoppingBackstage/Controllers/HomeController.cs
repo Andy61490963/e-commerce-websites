@@ -7,7 +7,7 @@ namespace ShoppingBackstage.Controllers
 {
     [Authorize]
     [Route("Backstage/[Action]")]
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
 

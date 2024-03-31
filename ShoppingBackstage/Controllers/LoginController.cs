@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ShoppingBackstage.ViewModel;
 using ShoppingBackstage.BackstageService.Interface;
-using SA.admin.ViewModel;
 
 // 登入
 using System.Security.Claims;
@@ -13,7 +12,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 namespace ShoppingBackstage.Controllers
 {
 
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
         private readonly IUserService _userService;
 
@@ -47,11 +46,11 @@ namespace ShoppingBackstage.Controllers
             {
                 ViewData["errorMessage"] = "輸入資料格式錯誤";
             }
-
+            
             return PartialView(model);
 
         }
-
+        
         public async Task<ActionResult> LoginAction(a0001_adminAccount model)
         {
             var claimsIdentity = new ClaimsIdentity(new[]

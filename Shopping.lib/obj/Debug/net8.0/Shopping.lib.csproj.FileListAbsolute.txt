@@ -1,0 +1,12 @@
+D:\e-commerce-websites\Shopping.lib\obj\Debug\net8.0\Shopping.lib.GeneratedMSBuildEditorConfig.editorconfig
+D:\e-commerce-websites\Shopping.lib\obj\Debug\net8.0\Shopping.lib.AssemblyInfoInputs.cache
+D:\e-commerce-websites\Shopping.lib\obj\Debug\net8.0\Shopping.lib.AssemblyInfo.cs
+D:\e-commerce-websites\Shopping.lib\obj\Debug\net8.0\Shopping.lib.csproj.CoreCompileInputs.cache
+D:\e-commerce-websites\Shopping.lib\obj\Debug\net8.0\Shopping.lib.sourcelink.json
+D:\e-commerce-websites\Shopping.lib\bin\Debug\net8.0\Shopping.lib.deps.json
+D:\e-commerce-websites\Shopping.lib\bin\Debug\net8.0\Shopping.lib.dll
+D:\e-commerce-websites\Shopping.lib\bin\Debug\net8.0\Shopping.lib.pdb
+D:\e-commerce-websites\Shopping.lib\obj\Debug\net8.0\Shopping.lib.dll
+D:\e-commerce-websites\Shopping.lib\obj\Debug\net8.0\refint\Shopping.lib.dll
+D:\e-commerce-websites\Shopping.lib\obj\Debug\net8.0\Shopping.lib.pdb
+D:\e-commerce-websites\Shopping.lib\obj\Debug\net8.0\ref\Shopping.lib.dll

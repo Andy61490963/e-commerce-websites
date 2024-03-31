@@ -649,6 +649,16 @@
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
         }
+      },
+      "Shopping.lib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Shopping.lib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Shopping.lib.dll": {}
+        }
       }
     }
   },
@@ -1911,12 +1921,18 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Shopping.lib/1.0.0": {
+      "type": "project",
+      "path": "../Shopping.lib/Shopping.lib.csproj",
+      "msbuildProject": "../Shopping.lib/Shopping.lib.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Dapper >= 2.1.35",
-      "Microsoft.Data.SqlClient >= 5.2.0"
+      "Microsoft.Data.SqlClient >= 5.2.0",
+      "Shopping.lib >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1950,7 +1966,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\e-commerce-websites\\Shopping.lib\\Shopping.lib.csproj": {
+              "projectPath": "D:\\e-commerce-websites\\Shopping.lib\\Shopping.lib.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

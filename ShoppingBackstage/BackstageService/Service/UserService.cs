@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Dapper;
-using SA.admin.ViewModel;
+using ShoppingBackstage.ViewModel;
+using Shopping.lib.Helpers;
 using ShoppingBackstage.BackstageService.Interface;
 
 namespace ShoppingBackstage.BackstageService.Service
@@ -17,6 +18,12 @@ namespace ShoppingBackstage.BackstageService.Service
 
         public a0001_adminAccount GetUser(string account, string password)
         {
+            // 加密後驗證
+            if (!string.IsNullOrEmpty(password))
+            {
+                password = HashHelper.Sha512(password);
+            }
+
             var sql = @"SELECT *
                         FROM a0001_adminAccount
                         WHERE account = @Account AND password = @Password";

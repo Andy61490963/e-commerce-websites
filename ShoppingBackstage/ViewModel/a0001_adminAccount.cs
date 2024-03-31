@@ -1,8 +1,9 @@
-﻿namespace SA.admin.ViewModel
+﻿namespace ShoppingBackstage.ViewModel
 {
     public class a0001_adminAccount
     {
-        public int id { get; set; }
+        public int seqno { get; set; }
+        public Guid id { get; set; }
         public string username { get; set; }
         public string account { get; set; }
         public string password { get; set; }
