@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ShoppingBackstage.Models;
 using System.Diagnostics;
 
 namespace ShoppingBackstage.Controllers
 {
+    [Authorize]
     [Route("Backstage/[Action]")]
     public class HomeController : Controller
     {

@@ -1,0 +1,78 @@
+﻿@model LoginViewModel
+
+@{
+    Layout = "_LoginLayout";
+}
+
+<div class="col-lg-4 align-self-center">
+    <div class="card-group d-block d-md-flex row">
+
+        <div class="card col-md-7 mb-0">
+            <div class="card-body">
+                <div class="row mb-1">
+                    
+                </div>
+                <h3 class="text-medium-emphasis">管理系統</h3>
+                <br>
+                <form asp-action="Index" asp-controller="Login" method="post">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">
+                            <i class="bi bi-person"></i>
+                        </span>
+                        <input asp-for="account" type="text" class="form-control" placeholder="請輸入帳號" required autofocus />
+                    </div>
+                    <div class="input-group mb-4">
+                        <span class="input-group-text">
+                            <i class="bi bi-lock"></i>
+                        </span>
+                        <input asp-for="password" type="password" class="form-control" placeholder="請輸入密碼" required />
+
+                    </div>
+                    <div>
+                        @if (@ViewData["errorMessage"] != null)
+                        {
+                            <div class="errormessage" style="color: #FF0000">@ViewData["errorMessage"]</div>
+                            <br />
+                        }
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-primary px-4" type="submit">登入</button>
+                        </div>
+                        <div class="col-6 text-end">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border: 1px solid #ddd;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .input-group-text {
+        background-color: #f0f0f0;
+        border: 1px solid #ddd;
+    }
+
+    .btn-primary {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+
+    .errormessage {
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #ffdddd;
+        border-left: 6px solid #ff0000;
+    }
+
+</style>

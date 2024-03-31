@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "PZ28FxAPMb89pa/MvCi8SN8N5DTuYxReZkogQVGzJ5O+iLP4YlN2tDpQTMoGKhYWF5i+0rThTnCWmochgJEzUw==",
+  "dgSpecHash": "jaFjjB2CSkTNlcOb29wjFIavWR8aJL3+I/ZI/p9qphv3XT29DOQIVW475NxnLSZ+Kqke0dmpl6pzYspmKOfNUg==",
   "success": true,
   "projectFilePath": "D:\\e-commerce-websites\\ShoppingBackstage\\ShoppingBackstage.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lol90\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\lol90\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\lol90\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",
     "C:\\Users\\lol90\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\lol90\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\lol90\\.nuget\\packages\\microsoft.data.sqlclient\\5.2.0\\microsoft.data.sqlclient.5.2.0.nupkg.sha512",

@@ -103,3 +103,4 @@ D:\e-commerce-websites\Shopping\bin\Debug\net8.0\ShoppingBackstage.pdb
 D:\e-commerce-websites\Shopping\obj\Debug\net8.0\Shopping.csproj.AssemblyReference.cache
 D:\e-commerce-websites\Shopping\obj\Debug\net8.0\Shopping.MvcApplicationPartsAssemblyInfo.cs
 D:\e-commerce-websites\Shopping\obj\Debug\net8.0\Shopping.csproj.CopyComplete
+D:\e-commerce-websites\Shopping\bin\Debug\net8.0\Dapper.dll

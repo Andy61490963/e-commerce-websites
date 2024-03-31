@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/hZhV4koSTRAkSi7gRFhe6QcCd1Z00ExHXiB4Fgg9PM=",
+  "Hash": "j2geeDpwTnvW3x2/I9/5mfBdrI/5NofyNh5Kq2tism4=",
   "Source": "Shopping",
   "BasePath": "_content/Shopping",
   "Mode": "Default",
@@ -2162,25 +2162,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\logo.png"
-    },
-    {
-      "Identity": "D:\\e-commerce-websites\\ShoppingBackstage\\wwwroot\\images\\NTTU-security-logo.png",
-      "SourceId": "ShoppingBackstage",
-      "SourceType": "Project",
-      "ContentRoot": "D:\\e-commerce-websites\\ShoppingBackstage\\wwwroot\\",
-      "BasePath": "_content/ShoppingBackstage",
-      "RelativePath": "images/NTTU-security-logo.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\NTTU-security-logo.png"
     },
     {
       "Identity": "D:\\e-commerce-websites\\ShoppingBackstage\\wwwroot\\js\\site.js",
