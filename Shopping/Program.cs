@@ -1,4 +1,16 @@
+using Microsoft.Data.SqlClient;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// ³s±µ¦r¦ê
+builder.Services
+       .AddScoped<SqlConnection, SqlConnection>(_ =>
+       {
+           var conn = new SqlConnection();
+           conn.ConnectionString =
+                   builder.Configuration.GetConnectionString("Connection");
+           return conn;
+       });
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -20,6 +32,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// Area
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
