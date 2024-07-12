@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Data.SqlClient;
 using ShoppingBackstage.BackstageService.Interface;
 using ShoppingBackstage.BackstageService.Service;
+using ShoppingBackstage.Areas.Account.Services.Interface;
+using ShoppingBackstage.Areas.Account.Services.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +31,7 @@ builder.Services
 
 
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IAccountManagementService, AccountManagementService>();
 
 
 builder.Services.AddSession();
@@ -56,6 +59,11 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 // Area
+app.MapAreaControllerRoute(
+    name: "AccountArea",
+    areaName: "Account",
+    pattern: "Account/{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Login}/{action=Index}/{id?}");

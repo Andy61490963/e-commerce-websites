@@ -1,0 +1,11 @@
+﻿@using Shopping.lib.Helpers;
+@{
+    var captcha = ViewData[ CaptchaHelper.Key ] as CaptchaHelper.CaptchaResult;
+}
+
+@if( captcha != null )
+{
+    <img src="@(captcha.ImageBase64String)" alt="驗證碼" class="jq_captcha" title="更新驗證碼" />
+}
+<i class="bi bi-arrow-repeat jq_captcha" title="更新驗證碼"></i>
+<input id="ResetCaptchaUrl" type="hidden" value="@Url.Action("ResetCaptcha", "Login", new { Area = "" })" />

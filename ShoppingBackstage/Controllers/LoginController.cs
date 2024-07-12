@@ -6,7 +6,8 @@ using ShoppingBackstage.BackstageService.Interface;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-
+using Shopping.lib.Helpers;
+using ShoppingBackstage.Extensions;
 
 
 namespace ShoppingBackstage.Controllers
@@ -20,16 +21,32 @@ namespace ShoppingBackstage.Controllers
         {
             _userService = userService;
         }
-
+        
+        [HttpGet]
         public IActionResult Index()
         { 
-            return View();
+            var model = new LoginViewModel();
+            this.GenerateCaptcha();
+            return View( model );
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Index(LoginViewModel model)
         {
+            var captcha = this.GetCookie<CaptchaHelper.CaptchaResult>( CaptchaHelper.Key );
+            if( captcha is null )
+            {
+                ViewData[ "ErrorMessage" ] = "請重新輸入驗證碼";
+            }
+            if( captcha != null && !string.IsNullOrWhiteSpace( model.Captcha ) && !captcha.Captcha.Equals( model.Captcha ) )
+            {
+                ModelState.AddModelError( nameof( model.Captcha ), "驗證碼錯誤" );
+                // 重新生成驗證碼
+                this.GenerateCaptcha();
+                return PartialView(model);
+            }
+            
             if (ModelState.IsValid)
             {
                 if (!string.IsNullOrWhiteSpace(model.account))
@@ -46,20 +63,20 @@ namespace ShoppingBackstage.Controllers
             {
                 ViewData["errorMessage"] = "輸入資料格式錯誤";
             }
-            
+            // 重新生成驗證碼
+            this.GenerateCaptcha();
             return PartialView(model);
-
         }
         
         public async Task<ActionResult> LoginAction(a0001_adminAccount model)
         {
             var claimsIdentity = new ClaimsIdentity(new[]
                 {
-                    new Claim( ClaimTypes.NameIdentifier, model.id.ToString() ),
-                    new Claim( ClaimTypes.Name, model.username ),
-                    new Claim( "account", model.account ),
-                    new Claim( "phone", model.phone.ToString() ),
-                    new Claim( "email", model.email ),
+                    new Claim( ClaimTypes.NameIdentifier, model.id_.ToString() ),
+                    new Claim( ClaimTypes.Name, model.username_ ),
+                    new Claim( "account", model.account_ ),
+                    new Claim( ClaimTypes.MobilePhone, model.phone_.ToString() ),
+                    new Claim( ClaimTypes.Email, model.email_ ),
 
                 }, CookieAuthenticationDefaults.AuthenticationScheme);
 
@@ -79,5 +96,15 @@ namespace ShoppingBackstage.Controllers
             return RedirectToAction("Index", "Login");
         }
 
+        /// <summary>
+        /// 重置驗證碼
+        /// </summary>
+        /// <returns></returns>
+        public IActionResult ResetCaptcha()
+        {
+            this.GenerateCaptcha();
+            return PartialView( "_Captcha" );
+        }
+        
     }
 }

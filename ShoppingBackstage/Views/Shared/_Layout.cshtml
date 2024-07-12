@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] 後臺管理</title>
 
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="~/lib/bootstrap-5.2.2-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    @* <link rel="stylesheet" href="~/ShoppingBackstage.styles.css" asp-append-version="true" /> *@
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-
+    <link rel="stylesheet" href="~/css/style.min.css" asp-append-version="true" />
+    
+    <link href="~/lib/bootstrap-datetimepicker/bootstrap-datetimepicker.css" rel="stylesheet" />
+    <link href="~/lib/select2/select2.min.css" rel="stylesheet" />
 </head>
 <body>
     <!-- sidebar -->
@@ -34,6 +35,18 @@
                         <div class="simplebar-content" style="padding: 0px;">
 
                             <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="init">
+                                <li class="nav-group" style="background-color:#3c4b64">
+                                    <a href="Account" class="nav-link nav-group-toggle">
+                                        帳號管理
+                                    </a>
+                                    <ul class="nav-group-items" style="background-color:#3c4b64">
+                                        <li class="nav-item">
+                                            <a href="@Url.Action("Index", "AccountManagement", new { area = "Account" })" class="nav-link nav-group">
+                                                管理消息
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                                 <li class="nav-group" style="background-color:#3c4b64">
                                     <a href="/SchoolSafetyManagement" class="nav-link nav-group-toggle">
                                         最新消息管理
@@ -119,7 +132,7 @@
                                                 金流事件
                                             </a>
                                         </li>
-                                        
+
                                     </ul>
                                 </li>
 
@@ -182,14 +195,15 @@
                 </ul>
             </div>
         </header>
-        <div class="container-fluid p-5">
+        <div class="container-fluid p-2">
             @RenderBody()
         </div>
     </div>
-
+    
+    <!-- 套件 -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/site.js"></script>
 
     <!-- CoreUI and necessary plugins-->
     <script src="~/vendors/coreui/coreui.bundle.min.js"></script>
@@ -198,7 +212,11 @@
 
     <!-- 分頁用 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
-
+    
+    <!-- 驗證錯誤 -->
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

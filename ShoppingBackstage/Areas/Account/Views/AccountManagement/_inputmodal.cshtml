@@ -1,0 +1,85 @@
+﻿@using Shopping.lib.Enums
+@using ShoppingBackstage.Areas.Account.ViewModels;
+@using ShoppingBackstage.Enums
+@model AdminAccountViewModels
+
+<form asp-controller="AccountManagement" asp-action="Save" id="Save" method="post">
+    <input type="hidden" class="form-control" name="@( nameof( Model.id_ ) )" asp-for=id_>
+    <input type="hidden" class="form-control" name="@( nameof( Model.actionType_ ) )" asp-for=actionType_>
+    <input type="hidden" class="form-control" name="@( nameof( Model.modify_id_ ) )" asp-for=modify_id_>
+    
+    <!-- 識別碼、帳號 -->
+    <div class="row mt-3">
+        <div class="col-sm-2 col-3 text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.account_ ) )" class="col-form-label">帳號</label>
+        </div>
+        <div class="col-sm-4 col-9">
+            <input type="text" class="form-control" name="@( nameof( Model.account_ ) )" asp-for="account_" required>
+            <span asp-validation-for="account_" class="text-danger"></span>
+        </div>
+        <div class="col-sm-auto col-3 text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.username_ ) )" class="col-form-label">名稱</label>
+        </div>
+        <div class="col-sm-4 col-9">
+            <input type="text" class="form-control" name="@( nameof( Model.username_ ) )" asp-for="username_" required>
+        </div>
+    </div>
+    <!-- 電話、信箱 -->
+    <div class="row mt-3">
+        <div class="col-sm-2 col-3 text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.phone_ ) )" class="col-form-label">電話</label>
+        </div>
+        <div class="col-sm-4 col-9">
+            <input type="text" class="form-control" name="@( nameof( Model.phone_ ) )" asp-for="phone_" required>
+        </div>
+        <div class="col-sm-auto col-3 text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.email_ ) )" class="col-form-label">信箱</label>
+        </div>
+        <div class="col-sm-4 col-9">
+            <input type="text" class="form-control" name="@( nameof( Model.email_ ) )" asp-for="email_" required>
+        </div>
+    </div>
+    <!-- 新增 密碼 -->
+    @if (Model.actionType_ == ActionType.Add.ToInt())
+    {
+        <div class="row mt-3">
+            <div class="col-sm-2 col-3 text-end">
+                <span class="text-danger">*</span>
+                <label for="@( nameof( Model.password_ ) )" class="col-form-label">密碼</label>
+            </div>
+            <div class="col-sm-4 col-9">
+                <input type="text" class="form-control" name="@( nameof( Model.password_ ) )" asp-for="password_">
+            </div>
+        </div>
+    }
+    <!-- 編輯 舊密碼、新密碼 -->
+    @if (Model.actionType_ == ActionType.Edit.ToInt())
+    {
+    <div class="row mt-3">
+        <div class="col-sm-2 col-3 text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.password_ ) )" class="col-form-label">舊密碼</label>
+        </div>
+        <div class="col-sm-4 col-9">
+            <input type="text" class="form-control" name="@( nameof( Model.password_ ) )" asp-for="password_" readonly>
+        </div>
+        <div class="col-sm-auto col-3 text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.newPassword_ ) )" class="col-form-label">新密碼</label>
+        </div>
+        <div class="col-sm-4 col-9">
+            <input type="text" class="form-control" name="@( nameof( Model.newPassword_ ) )" asp-for="newPassword_" required>
+        </div>
+    </div>
+    }
+    <br><br>
+    <!-- 確認或取消 -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary closeModal">取消</button>
+        <button type="submit" class="btn btn-outline-primary confirmSubmit">確認</button>
+    </div>
+</form>

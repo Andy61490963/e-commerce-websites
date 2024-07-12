@@ -11,7 +11,7 @@ public enum ActionType
     /// 新增
     /// </summary>
     [Display( Name = "新增", Description = "新增" )]
-    Add = 1,
+    Add,
 
     /// <summary>
     /// 編輯
@@ -80,25 +80,4 @@ public enum ActionType
     [Display(Name = "檢視", Description = "檢視" )]
     View
 
-}
-
-/// <summary>
-/// 授權行為
-/// </summary>
-public enum AuthType 
-{
-    [Display(Name = "新增人員權限", Description = "新增人員權限")]
-    AddUserAuth = 1,
-    [Display(Name = "移除人員權限", Description = "移除人員權限")]
-    DelUserAuth ,
-
-    [Display(Name = "新增群組權限", Description = "新增群組權限")]
-    AddGroupAuth,
-    [Display(Name = "移除群組權限", Description = "移除群組權限")]
-    DelGroupAuth,
-
-    [Display(Name = "新增群組成員", Description = "新增群組成員")]
-    AddGroupUser,
-    [Display(Name = "移除群組成員", Description = "移除群組成員")]
-    DelGroupUser,
 }

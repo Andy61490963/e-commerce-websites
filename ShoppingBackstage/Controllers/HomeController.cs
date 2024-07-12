@@ -18,6 +18,11 @@ namespace ShoppingBackstage.Controllers
 
         public IActionResult Index()
         {
+            var test = CurrentUser.Name;
+            var test1 = CurrentUser.Id;
+            var test2 = CurrentUser.account;
+            var test3 = CurrentUser.phone;
+            var test4 = CurrentUser.email;
             return View();
         }
 

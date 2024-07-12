@@ -19,14 +19,14 @@ namespace Shopping.lib.Helpers
             return Convert.ToBase64String(computeHash);
         }
 
-        private static byte[] ToSHA256(this string text)
+        private static byte[] ToSha256(this string text)
         {
             return SHA256.HashData(Encoding.UTF8.GetBytes(text));
         }
 
         public static string ToSHA256String(this string text)
         {
-            var shA256 = text.ToSHA256();
+            var shA256 = text.ToSha256();
             var stringBuilder = new StringBuilder();
 
             foreach (var num in shA256)

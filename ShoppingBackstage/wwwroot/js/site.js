@@ -2,3 +2,27 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+
+$(document).ready(function () {
+    console.log("test");
+    function bindCaptchaRefresh() {
+        $(".jq_captcha").off("click").on("click", function () {
+            var my = $(this);
+            var url = $('#ResetCaptchaUrl').val();
+            console.log(url);
+            $.ajax({
+                url: url,
+                contentType: "application/json",
+                dataType: "html",
+                success: function (response) {
+                    if (response && response.indexOf("jq_captcha") >= 0) {
+                        my.closest("div").html(response);
+                        bindCaptchaRefresh(); // 重新綁定事件
+                    }
+                }
+            });
+        });
+    }
+
+    bindCaptchaRefresh(); // 初次綁定事件
+});

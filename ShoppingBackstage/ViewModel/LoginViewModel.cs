@@ -11,5 +11,9 @@ namespace ShoppingBackstage.ViewModel
         [Required]
         [Display(Name = "密碼")]
         public string password { get; set; }
+        
+        [Required]
+        [Display(Name = "驗證碼")]
+        public string? Captcha { get; set; }
     }
 }

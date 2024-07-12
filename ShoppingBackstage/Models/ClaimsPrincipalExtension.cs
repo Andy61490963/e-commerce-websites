@@ -11,8 +11,8 @@ public class ClaimsPrincipalExtension : ClaimsPrincipal
     /// <summary>
     /// 使用者 id
     /// </summary>
-    public int Id => int.Parse( FindFirst( ClaimTypes.NameIdentifier )?.Value ?? "0" );
-
+    public Guid Id => Guid.Parse(FindFirst(ClaimTypes.NameIdentifier)?.Value ?? Guid.Empty.ToString());
+    
     /// <summary>
     /// 使用者姓名
     /// </summary>
@@ -21,5 +21,15 @@ public class ClaimsPrincipalExtension : ClaimsPrincipal
     /// <summary>
     /// 帳號
     /// </summary>
-    public string Ac => FindFirst("account")?.Value ?? string.Empty;
+    public string account => FindFirst("account")?.Value ?? string.Empty;
+    
+    /// <summary>
+    /// 手機
+    /// </summary>
+    public string phone => FindFirst( ClaimTypes.MobilePhone )?.Value ?? string.Empty; 
+    
+    /// <summary>
+    /// 信箱
+    /// </summary>
+    public string email => FindFirst( ClaimTypes.Email )?.Value ?? string.Empty; 
 }

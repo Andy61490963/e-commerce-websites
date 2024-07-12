@@ -26,7 +26,7 @@ namespace ShoppingBackstage.BackstageService.Service
 
             var sql = @"SELECT *
                         FROM a0001_adminAccount
-                        WHERE account = @Account AND password = @Password";
+                        WHERE account_ = @Account AND password_ = @Password AND delete_ = 0";
             var result = _con.QueryFirstOrDefault<a0001_adminAccount>(sql, new
             {
                 Account = account,

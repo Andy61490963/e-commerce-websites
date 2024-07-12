@@ -1,0 +1,42 @@
+﻿@using ShoppingBackstage.Areas.Account.ViewModels;
+@using X.PagedList;
+@model IPagedList<AdminAccountViewModels>
+@{
+    ViewData["Title"] = "使用者帳號管理";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="row p-2 text-title">
+            @* <div class="text-start"> *@
+            @*     <span>使用者帳號管理</span> *@
+            @* </div> *@
+
+            <!-- partialview function -->
+            <div id="function">
+                @Html.Partial("_function")
+            </div>
+        </div>
+    </div>
+    <!-- partialview table -->
+    <div id="list">
+        @Html.Partial("_list", Model)
+    </div>
+</div>
+
+<!-- 編輯 -->
+<div class="modal fade" id="accountModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"></h3>
+                <button type="button" class="btn-close closeModal"></button>
+            </div>
+            <div class="modal-body" id="accountModalBody"></div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="~/js/Account/AccountManagement/index.js"></script>
+}

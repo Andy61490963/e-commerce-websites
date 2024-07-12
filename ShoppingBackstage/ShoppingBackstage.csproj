@@ -9,10 +9,23 @@
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.35" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.4.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Shopping.lib\Shopping.lib.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Area\VehiclePermit\Views\PermitHistory\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Area\VehiclePermit\Views\PermitHistory\_PermitHistoryTable.cshtml" />
+    <_ContentIncludedByDefault Remove="Area\VehiclePermit\Views\VehiclePermit\Index.cshtml" />
+    <_ContentIncludedByDefault Remove="Area\VehiclePermit\Views\VehiclePermit\_ApplyForm.cshtml" />
+    <_ContentIncludedByDefault Remove="Area\VehiclePermit\Views\VehiclePermit\_Price.cshtml" />
+    <_ContentIncludedByDefault Remove="Area\VehiclePermit\Views\VehiclePermit\_Upload.cshtml" />
+    <_ContentIncludedByDefault Remove="Area\VehiclePermit\Views\VehiclePermit\_VehiclePermitTable.cshtml" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\AdvisorSetting\input.css" />
   </ItemGroup>
 
 </Project>
