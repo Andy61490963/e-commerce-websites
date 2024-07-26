@@ -1,0 +1,42 @@
+﻿@model List<Shopping.lib.ViewModels.BannerManagementViewModel>?
+
+<div class="d-flex justify-content-start ms-4">
+    <a type="button" class="btn btn-outline-success" href="@Url.Action( "Index", "Banner")">
+        返回
+    </a>
+</div>
+<section id="billboard" class="position-relative overflow-hidden p-4">
+    <div class="swiper main-swiper">
+        <div class="swiper-wrapper">
+            @if (Model != null && Model.Any())
+            {
+                @for (var i = 0; i < Model.Count; i++)
+                {
+                    var item = Model[ i ];
+                    var url = @Url.Content(item.ServerFile!.file_path_);
+                    <div class="swiper-slide" style="background-image: url(@url); background-size: cover; background-repeat: no-repeat; height: 100vh; background-position: center;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="@( $"offset-md-{item.offset_} col-md-6" )">
+                                    <div class="banner-content">
+                                        <h2>@(item.title_)</h2>
+                                        <p class="fs-3">@(item.caption_)</p>
+                                        <a href="@(item.url_)" class="btn">Shop Now</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-5"></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+        <div class="main-slider-pagination position-absolute text-center"></div>
+    </div>
+</section>
+
+@section scripts
+{
+    <script src="~/lib/template/plugins.js"></script>
+    <script src="~/lib/template/script.js"></script>
+}

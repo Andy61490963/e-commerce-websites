@@ -1,0 +1,8 @@
+﻿@model AboutManagementViewModel?
+
+@if (Model != null)
+{
+    <span class="title-accent fs-6 text-uppercase" data-aos="fade" data-aos-easing="ease-in" data-aos-duration="1000" data-aos-once="true">@Model.title_</span>
+    <h3 class="py-3" data-aos="fade" data-aos-easing="ease-in" data-aos-duration="1500" data-aos-once="true">@Model.content_</h3>
+    <p data-aos="fade" data-aos-easing="ease-in" data-aos-duration="1800" data-aos-once="true">@Model.footer_</p>
+}

@@ -4,7 +4,6 @@
 // Write your JavaScript code.
 
 $(document).ready(function () {
-    console.log("test");
     function bindCaptchaRefresh() {
         $(".jq_captcha").off("click").on("click", function () {
             var my = $(this);

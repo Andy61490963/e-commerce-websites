@@ -1,0 +1,117 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Shopping.lib.ViewModels.BannerManagementViewModel
+
+<form asp-controller="Banner" asp-action="Save" id="Save" method="post">
+    <input type="hidden" class="form-control" name="@( nameof( Model.id_ ) )" asp-for="id_" />
+    <input type="hidden" class="form-control" name="@( nameof( Model.ActionType ) )" asp-for="ActionType" />
+    <input type="hidden" class="form-control" name="@( nameof( Model.previousFilesAttach ) )" asp-for="previousFilesAttach" value="@( ViewData[ "PreviousFiles" ] )" />
+    
+    <!-- 標題 -->
+    <div class="row mt-3">
+        <div class="col-sm-2 col-3 text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.title_ ) )" class="col-form-label">標題</label>
+        </div>
+        <div class="col-sm-9 col-9">
+            <input type="text" class="form-control" name="@( nameof( Model.title_ ) )" asp-for="title_">
+            <span class="text-danger" asp-validation-for="title_"></span>
+        </div>
+    </div>
+    
+    <!-- 說明 -->
+    <div class="row mt-3">
+        <div class="col-sm-2 col-3 text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.caption_ ) )" class="col-form-label">說明</label>
+        </div>
+        <div class="col-sm-9 col-9">
+            <textarea class="form-control" rows="5" name="@( nameof( Model.caption_ ) )" asp-for=caption_ maxlength="500"></textarea>
+            <span class="text-danger" asp-validation-for="caption_"></span>
+        </div>
+    </div>
+    
+    <!-- 連結 -->
+    <div class="row mt-3">
+        <div class="col-sm-2 col-3 text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.url_ ) )" class="col-form-label">連結</label>
+        </div>
+        <div class="col-sm-9 col-9">
+            <input type="text" class="form-control" name="@( nameof( Model.url_ ) )" asp-for="url_">
+            <span class="text-danger" asp-validation-for="url_"></span>
+        </div>
+    </div>
+
+    <!-- 開始時間、結束時間 -->
+    <div class="row mt-3">
+        <div class="col-sm-2 col-3 align-content-end text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.start_date_ ) )" class="col-form-label">開始</label>
+        </div>
+        <div class="col-sm-4 col-9">
+            <input type="date" class="form-control" name="@( nameof( Model.start_date_ ) )" asp-for=start_date_ required>
+        </div>
+        <div class="col-sm-auto col-3 mt-3 mt-sm-0 align-content-center text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.end_date_ ) )" class="col-form-label">結束</label>
+        </div>
+        <div class="col-sm-4 col-9 mt-3 mt-sm-0">
+            <input type="date" class="form-control" name="@( nameof( Model.end_date_ ) )" asp-for=end_date_ required>
+        </div>
+    </div>
+
+    <!-- 開關 -->
+    <div class="row mt-3">
+        <div class="col-sm-2 col-3 text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.enabled_ ) )" class="col-form-label">開關</label>
+        </div>
+        <div class="col-sm-9 col-9">
+            <select class="form-select" asp-for="enabled_" required>
+                <!option value="1" @(Model.enabled_ == 1 ? "selected" : "")>開啟</!option>
+                <!option value="0" @(Model.enabled_ == 0 ? "selected" : "")>關閉</!option>
+            </select>
+        </div>
+    </div>
+
+    <!-- 水平排版 -->
+    <div class="row mt-3">
+        <div class="col-sm-2 col-3 text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.offset_ ) )" class="col-form-label">水平排版</label>
+        </div>
+        <div class="col-sm-9 col-9">
+            <select class="form-select" asp-for="offset_" required>
+                <!option value="0" @(Model.offset_ == 0 ? "selected" : "")>左五</!option>
+                <!option value="1" @(Model.offset_ == 1 ? "selected" : "")>左四</!option>
+                <!option value="2" @(Model.offset_ == 2 ? "selected" : "")>左三</!option>
+                <!option value="3" @(Model.offset_ == 3 ? "selected" : "")>左二</!option>
+                <!option value="4" @(Model.offset_ == 4 ? "selected" : "")>左一</!option>
+                <!option value="5" @(Model.offset_ == 5 ? "selected" : "")>置中</!option>
+                <!option value="6" @(Model.offset_ == 6 ? "selected" : "")>右一</!option>
+                <!option value="7" @(Model.offset_ == 7 ? "selected" : "")>右二</!option>
+                <!option value="8" @(Model.offset_ == 8 ? "selected" : "")>右三</!option>
+                <!option value="9" @(Model.offset_ == 9 ? "selected" : "")>右四</!option>
+                <!option value="10" @(Model.offset_ == 10 ? "selected" : "")>右五</!option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="row mt-3">
+        <div class="col-sm-2 col-3 text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.FileObject ) )" class="col-form-label">圖片</label>
+        </div>
+        <div class="col-sm-9 col-9">
+            <input class="form-control" type="file" asp-for="FileObject" required>
+            <label class="form-label text-danger mt-2" style="font-size: 13px">圖片限制為 [寬 1920 px * 高 1070 px]，如不符合系統將自動判定並進行裁切。如需調整，請重新上傳符合規定的圖片。</label>
+        </div>
+    </div>
+    
+    <br>
+    <!-- 確認或取消 -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary closeModal">取消</button>
+        <button type="submit" class="btn btn-outline-primary">確認</button>
+    </div>
+</form>

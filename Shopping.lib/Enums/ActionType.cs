@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace ShoppingBackstage.Enums;
+namespace Shopping.lib.Enums;
 
 /// <summary>
 /// 操作行為

@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Shopping.lib.Enums;
-using Shopping.lib.Helpers;
 using ShoppingBackstage.Controllers;
 using ShoppingBackstage.Areas.Account.Services.Interface;
 using ShoppingBackstage.Areas.Account.ViewModels;
-using ShoppingBackstage.Enums;
+using Shopping.lib.Enums;
 using X.PagedList;
 namespace ShoppingBackstage.Areas.Account.Controllers;
 
@@ -65,7 +64,7 @@ public class AccountManagementController : BaseController
     /// <summary>
     /// 儲存、更新 結果
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="model"></param>
     /// <returns></returns>
     public IActionResult Save( AdminAccountViewModels model )
     {

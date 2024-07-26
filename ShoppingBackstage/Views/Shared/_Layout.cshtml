@@ -42,22 +42,26 @@
                                     <ul class="nav-group-items" style="background-color:#3c4b64">
                                         <li class="nav-item">
                                             <a href="@Url.Action("Index", "AccountManagement", new { area = "Account" })" class="nav-link nav-group">
-                                                管理消息
+                                                編輯帳號
                                             </a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-group" style="background-color:#3c4b64">
                                     <a href="/SchoolSafetyManagement" class="nav-link nav-group-toggle">
-                                        最新消息管理
+                                        系統主頁面管理
                                     </a>
                                     <ul class="nav-group-items" style="background-color:#3c4b64">
                                         <li class="nav-item">
-                                            <a href="/SchoolSafety/TypeSetting" class="nav-link nav-group">
-                                                管理消息
+                                            <a href="@Url.Action("Index", "Banner", new { area = "" })" class="nav-link nav-group">
+                                                Banner管理
                                             </a>
                                         </li>
-
+                                        <li class="nav-item">
+                                            <a href="@Url.Action("Index", "About", new { area = "" })" class="nav-link nav-group">
+                                                About管理
+                                            </a>
+                                        </li>
                                         <li class="nav-group" style="background-color:#3c4b64">
                                             <a href="/SchoolSafetyManagemen" class="nav-link nav-group-toggle">
                                                 問卷管理
@@ -213,10 +217,14 @@
     <!-- 分頁用 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajax-unobtrusive/3.2.6/jquery.unobtrusive-ajax.min.js"></script>
     
+    <!-- 排序用 -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
     <!-- 驗證錯誤 -->
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-    
-    @await RenderSectionAsync("Scripts", required: false)
+
+    @await RenderSectionAsync("styles", required: false)
+    @await RenderSectionAsync("scripts", required: false)
 </body>
 </html>

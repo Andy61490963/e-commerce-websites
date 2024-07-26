@@ -1,0 +1,63 @@
+﻿@using Shopping.lib.Enums
+@using Shopping.lib.ViewModels;
+@using ShoppingBackstage.PageListRenderOptionsExtensions
+@using X.PagedList;
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model IPagedList<AboutManagementViewModel>
+
+@{
+    ViewData["Title"] = "Banner管理";
+    int index = (Model.PageNumber - 1) * Model.PageSize + 1;
+    var pageUrl = Url.Action("List");
+    var ajaxOptions = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        UpdateTargetId = "List"
+    };
+}
+
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead>
+            <tr>
+                <th class="col-auto">#</th>
+                <th class="col-1">標題</th>
+                <th class="col-5">內文</th>
+                <th class="col-4">尾段</th>
+                <th class="col-1">動作</th>
+            </tr>
+            </thead>
+            <tbody id="sortable">
+            @foreach (var item in Model)
+            {
+                <tr data-id="@item.id_" class="@(item.enabled_ == StatusType.Enabled.ToInt() ? "bg-enabled" : "")">
+                    <td>@(index)</td>
+                    <td>@item.title_</td>
+                    <td>@item.content_</td>
+                    <td>@item.footer_</td>
+                    <td>
+                        <button class="btn btn-sm editAbout" type="button" title="編輯" data-id="@item.id_">
+                            <i class="bi bi-pencil-square"></i>
+                        </button>
+                        <button class="btn btn-sm deleteAbout" type="button" title="刪除" data-id="@item.id_">
+                            <i class="bi bi-trash3"></i>
+                        </button>
+                        <button class="btn btn-sm moveAbout" type="button" title="移動" style="cursor: move;">
+                            <i class="bi bi-arrows-move"></i>
+                        </button>
+                    </td>
+                </tr>
+            index++;
+            }
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div class="row">
+        <div class="my-2 d-flex justify-content-end">
+            @Html.PagedListPager(Model, page => $"{pageUrl}{(pageUrl.Contains("?") ? "&" : "?")}page={page}", CustomPageListRenderOption.CustomEnableUnobtrusiveAjaxReplacing(ajaxOptions))
+        </div>
+    </div>
+</div>

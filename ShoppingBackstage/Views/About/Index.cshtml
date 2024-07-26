@@ -1,0 +1,48 @@
+﻿@using Shopping.lib.ViewModels;
+@model AboutViewModel
+@{
+    ViewData["Title"] = "Banner管理";
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="row p-2 text-title">
+            <div id="function">
+                @Html.Partial("_function", Model.Search)
+            </div>
+        </div>
+    </div>
+    <div id="list">
+        @Html.Partial("_list", Model.Abouts)
+    </div>
+</div>
+
+<!-- 編輯 -->
+<div class="modal fade" id="aboutModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"></h3>
+                <button type="button" class="btn-close closeModal"></button>
+            </div>
+            <div class="modal-body" id="aboutModalBody"></div>
+        </div>
+    </div>
+</div>
+
+@section styles {
+    <link href="~/lib/filepond-4.28.2/dist/filepond.min.css" rel="stylesheet">
+    <link href="~/lib/filepond-plugin-image-preview-4.5.0/dist/filepond-plugin-image-preview.min.css" rel="stylesheet">
+    <link href="~/lib/filepond-plugin-get-file/css/filepond-plugin-get-file.css" rel="stylesheet">
+    <link href="~/lib/photoswipe-5.4.4/photoswipe.min.css" rel="stylesheet">
+}
+
+@section scripts {
+    <script src="~/lib/filepond-plugin-image-preview-4.5.0/dist/filepond-plugin-image-preview.min.js"></script>
+    <script src="~/lib/filepond-plugin-file-validate-type-1.2.8/dist/filepond-plugin-file-validate-type.min.js"></script>
+    <script src="~/lib/filepond-plugin-image-transform-3.8.7/dist/filepond-plugin-image-transform.min.js"></script>
+    <script src="~/lib/filepond-plugin-image-resize-2.0.10/dist/filepond-plugin-image-resize.min.js"></script>
+    <script src="~/lib/filepond-plugin-get-file/js/filepond-plugin-get-file.js"></script>
+    <script src="~/lib/filepond-4.28.2/dist/filepond.min.js"></script>
+    <script src="~/js/About/index.js"></script>
+}

@@ -26,6 +26,10 @@
     <_ContentIncludedByDefault Remove="Area\VehiclePermit\Views\VehiclePermit\_Upload.cshtml" />
     <_ContentIncludedByDefault Remove="Area\VehiclePermit\Views\VehiclePermit\_VehiclePermitTable.cshtml" />
     <_ContentIncludedByDefault Remove="wwwroot\css\AdvisorSetting\input.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\template\jquery-1.11.0.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\template\modernizr.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\template\plugins.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\template\script.js" />
   </ItemGroup>
 
 </Project>

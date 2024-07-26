@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Shopping.lib.ViewModels.SearchViewModel
+@{
+    var titles = ViewData["title_"] as List<GeneralViewModel> ?? new List<GeneralViewModel>();
+}
+<!-- 大螢幕標頭呈現 -->
+<div class="d-xl-block mt-3">
+    <form asp-controller="Banner" asp-action="Search" id="Search" method="post">
+        <div class="row">
+            <div class="col-auto mt-2">
+                <label for="@(nameof(Model.selected))" class="col-form-label sa-safetyEventDDL">標題</label>
+            </div>
+            <div class="col-auto mt-2">
+                <select asp-for="selected" class="form-select">
+                    <option value="">全部</option>
+                    @foreach (var item in titles)
+                    {
+                        <option value="@item.Id">@item.Text</option>
+                    }
+                </select>
+            </div>
+
+            <div class="col-auto mt-2">
+                <div class="input-group">
+                    <input type="text" class="form-control kw" placeholder="搜尋標題" asp-for="text">
+                    <div class="input-group-text bi bi-search search">
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto mt-2">
+                <div class="input-group">
+                    <button type="button" class="btn btn-primary addAbout">
+                        新增
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

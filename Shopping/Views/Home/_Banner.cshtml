@@ -1,0 +1,24 @@
+﻿@model List<BannerManagementViewModel>?
+
+@if (Model != null && Model.Any())
+{
+    @for (var i = 0; i < Model.Count; i++)
+    {
+        var item = Model[ i ];
+        var url = @Url.Content(item.ServerFile!.file_path_);
+        <div class="swiper-slide" style="background-image: url(@url); background-size: cover; background-repeat: no-repeat; height: 100vh; background-position: center;">
+            <div class="container ">
+                <div class="row">
+                    <div class="@( $"offset-md-{item.offset_} col-md-6" )">
+                    <div class="banner-content">
+                            <h2>@(item.title_)</h2>
+                            <p class="fs-3">@(item.caption_)</p>
+                            <a href="@(item.url_)" class="btn">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="col-md-5"></div>
+                </div>
+            </div>
+        </div>
+    }
+}

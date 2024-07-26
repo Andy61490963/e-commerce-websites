@@ -1,8 +1,11 @@
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.FileProviders;
+using Shopping.Service.Interface;
+using Shopping.Service.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ³s±µ¦r¦ê
+// ï¿½sï¿½ï¿½ï¿½rï¿½ï¿½
 builder.Services
        .AddScoped<SqlConnection, SqlConnection>(_ =>
        {
@@ -14,6 +17,7 @@ builder.Services
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IDashBoardService, DashBoardService>();
 
 var app = builder.Build();
 
@@ -27,6 +31,16 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+if (!Directory.Exists(builder.Configuration.GetValue<string>("VirtualFolderPath")))
+{
+    Directory.CreateDirectory(builder.Configuration.GetValue<string>("VirtualFolderPath"));
+}
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(builder.Configuration.GetValue<string>("VirtualFolderPath")),
+    RequestPath = "/Shopping.uploads" // å¾ç£ç¢ŸCé–‹å§‹æ‰¾æª”æ¡ˆ
+});
 
 app.UseRouting();
 

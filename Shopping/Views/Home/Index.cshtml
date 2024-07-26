@@ -1,48 +1,9 @@
-﻿<section id="billboard" class="position-relative overflow-hidden">
+﻿@model HomeViewModel
+
+<section id="billboard" class="position-relative overflow-hidden">
     <div class="swiper main-swiper">
         <div class="swiper-wrapper">
-            <div class="swiper-slide" style="background-image: url(images/banner-image.jpg); background-size: cover; background-repeat: no-repeat; height: 100vh; background-position: center;">
-                <div class="container ">
-                    <div class="row">
-                        <div class="offset-md-1 col-md-6">
-                            <div class="banner-content">
-                                <h2>永生花卡片</h2>
-                                <p class="fs-3">給您提供最完美的設計，傳遞最浪漫的心意</p>
-                                <a href="single-product.html" class="btn">Shop Now</a>
-                            </div>
-                        </div>
-                        <div class="col-md-5"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide" style="background-image: url(images/banner-image1.jpg); background-size: cover; background-repeat: no-repeat; height: 100vh; background-position: center;">
-                <div class="container">
-                    <div class="row">
-                        <div class="offset-md-6 col-md-6">
-                            <div class="banner-content">
-                                <h2>永生花卡片</h2>
-                                <p class="fs-3">給您提供最完美的設計，傳遞最浪漫的心意</p>
-                                <a href="single-product.html" class="btn">Shop Now</a>
-                            </div>
-                        </div>
-                        <div class="col-md-5"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide" style="background-image: url(images/banner-image2.jpg); background-size: cover; background-repeat: no-repeat; height: 100vh; background-position: center;">
-                <div class="container">
-                    <div class="row">
-                        <div class="offset-md-1 col-md-6">
-                            <div class="banner-content">
-                                <h2>永生花卡片</h2>
-                                <p class="fs-3">給您提供最完美的設計，傳遞最浪漫的心意</p>
-                                <a href="single-product.html" class="btn">Shop Now</a>
-                            </div>
-                        </div>
-                        <div class="col-md-5"></div>
-                    </div>
-                </div>
-            </div>
+            <partial name="_Banner" model="@Model.BannerViewModel"/>
         </div>
         <div class="main-slider-pagination position-absolute text-center"></div>
     </div>
@@ -51,9 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="offset-md-2 col-md-8">
-                <span class="title-accent fs-6 text-uppercase" data-aos="fade" data-aos-easing="ease-in" data-aos-duration="1000" data-aos-once="true">關於我們</span>
-                <h3 class="py-3" data-aos="fade" data-aos-easing="ease-in" data-aos-duration="1500" data-aos-once="true">Vaso is the only best online store for varieties of collection of clean and beautiful vases.</h3>
-                <p data-aos="fade" data-aos-easing="ease-in" data-aos-duration="1800" data-aos-once="true">Et id sapien id enim, sit tempor cursus elit, fusce. Nunc tristique facilisis consectetur at vivamus ut porta porta. Ut nisl, tortor, aliquam blandit vitae vehicula vivamus leo nullam urna, scelerisque unc lectus phasellus adipiscing arcu. Tristique facilisis nunc consectetur at tempor cursusut porta.</p>
+                <partial name="_About" model="@Model.AboutViewModel"/>
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@ using Shopping.lib.Enums;
 using Shopping.lib.Helpers;
 using ShoppingBackstage.Areas.Account.Services.Interface;
 using ShoppingBackstage.Areas.Account.ViewModels;
-using ShoppingBackstage.Enums;
+using Shopping.lib.Enums;
 
 namespace ShoppingBackstage.Areas.Account.Services.Service;
 

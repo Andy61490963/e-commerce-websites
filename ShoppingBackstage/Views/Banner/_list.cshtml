@@ -1,0 +1,77 @@
+﻿@using Shopping.lib.Enums
+@using Shopping.lib.ViewModels;
+@using ShoppingBackstage.PageListRenderOptionsExtensions
+@using X.PagedList;
+@using X.PagedList.Mvc.Core
+@using X.PagedList.Web.Common
+@model IPagedList<BannerManagementViewModel>
+
+@{
+    ViewData["Title"] = "Banner管理";
+    int index = (Model.PageNumber - 1) * Model.PageSize + 1;
+    var pageUrl = Url.Action("List");
+    var ajaxOptions = new AjaxOptions
+    {
+        HttpMethod = "POST",
+        UpdateTargetId = "List"
+    };
+}
+
+<div class="card-body">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle">
+            <thead>
+            <tr>
+                <th class="col-auto">#</th>
+                <th class="col-2">圖片</th>
+                <th class="col-1">標題</th>
+                <th class="col-2">說明</th>
+                <th class="col-2">連結</th>
+                <th class="col-1">啟用時間</th>
+                <th class="col-1">結束時間</th>
+                <th class="col-1">狀態</th>
+                <th class="col-1">動作</th>
+            </tr>
+            </thead>
+            <tbody id="sortable">
+            @foreach (var item in Model)
+            {
+            <tr data-id="@item.id_">
+                <td>@(index)</td>
+                <td>
+                    <a href="@Url.Content(item.ServerFile?.file_path_)" data-pswp-width="1920" data-pswp-height="1070">
+                        <img style="width:100%; height:auto; padding-right:20px;" class="img-fluid" src="@(Url.Content(item.ServerFile?.file_path_ ?? "~/images/default-banner.png"))" alt="Banner Image"/>
+                    </a>
+                </td>
+                <td>@item.title_</td>
+                <td>@item.caption_</td>
+                <td>@item.url_</td>
+                <td>@item.start_date_.ToString("yyyy-MM-dd")</td>
+                <td>@item.end_date_?.ToString("yyyy-MM-dd")</td>
+                <td class="@(item.enabled_ == StatusType.Enabled.ToInt() ? "text-success" : "text-danger")">
+                    @(item.enabled_ == StatusType.Enabled.ToInt() ? StatusType.Enabled.GetDescription() : StatusType.Closed.GetDescription())
+                </td>
+                <td>
+                    <button class="btn btn-sm editBanner" type="button" title="編輯" data-id="@item.id_">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <button class="btn btn-sm deleteBanner" type="button" title="刪除" data-id="@item.id_">
+                        <i class="bi bi-trash3"></i>
+                    </button>
+                    <button class="btn btn-sm moveBanner" type="button" title="移動" style="cursor: move;">
+                        <i class="bi bi-arrows-move"></i>
+                    </button>
+                </td>
+            </tr>
+            index++;
+            }
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div class="row">
+        <div class="my-2 d-flex justify-content-end">
+            @Html.PagedListPager(Model, page => $"{pageUrl}{(pageUrl.Contains("?") ? "&" : "?")}page={page}", CustomPageListRenderOption.CustomEnableUnobtrusiveAjaxReplacing(ajaxOptions))
+        </div>
+    </div>
+</div>

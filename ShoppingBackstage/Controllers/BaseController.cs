@@ -8,7 +8,7 @@ namespace ShoppingBackstage.Controllers
     {
 
         protected const int PageSize = 15;
-
+        protected const int page = 1;
         protected ClaimsPrincipalExtension CurrentUser => new ClaimsPrincipalExtension(User);
 
         protected string ClientIp

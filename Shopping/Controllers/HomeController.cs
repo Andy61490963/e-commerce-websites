@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Shopping.Models;
 using System.Diagnostics;
+using Shopping.ViewModel;
+using Shopping.Service.Interface;
 
 namespace Shopping.Controllers
 {
@@ -8,15 +10,23 @@ namespace Shopping.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IDashBoardService _dashBoardService;
+        
+        public HomeController(ILogger<HomeController> logger, IDashBoardService dashboard)
         {
             _logger = logger;
+            _dashBoardService = dashboard;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var model = new HomeViewModel
+            {
+                BannerViewModel = _dashBoardService.GetBanner(),
+                AboutViewModel = _dashBoardService.GetAbout(),
+            };
+
+            return View( model );
         }
 
         public IActionResult Privacy()
