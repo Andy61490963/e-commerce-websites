@@ -1,0 +1,63 @@
+﻿@model CategoriesManagementViewModels
+
+<form asp-controller="CategoriesManagement" asp-action="Save" id="Save" method="post">
+    <input type="hidden" class="form-control" name="@( nameof( Model.id_ ) )" asp-for="id_" />
+    <input type="hidden" class="form-control" name="@( nameof( Model.actionType_ ) )" asp-for="actionType_" />
+    <input type="hidden" class="form-control" name="@( nameof( Model.layoutFilesAttach ) )" asp-for="layoutFilesAttach" value="@( ViewData[ "LayoutFileAttach" ] )" />
+    <input type="hidden" class="form-control" name="@( nameof( Model.bannerFilesAttach ) )" asp-for="bannerFilesAttach" value="@( ViewData[ "BannerFileAttach" ] )" />
+
+    <!-- 標題 -->
+    <div class="row mt-3">
+        <div class="col-sm-2 col-3 text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.name_ ) )" class="col-form-label">名稱</label>
+        </div>
+        <div class="col-sm-9 col-9">
+            <input type="text" class="form-control" name="@( nameof( Model.name_ ) )" asp-for="name_">
+            <span class="text-danger" asp-validation-for="name_"></span>
+        </div>
+    </div>
+
+    <!-- 開關 -->
+    <div class="row mt-3">
+        <div class="col-sm-2 col-3 text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.enabled_ ) )" class="col-form-label">開關</label>
+        </div>
+        <div class="col-sm-9 col-9">
+            <select class="form-select" asp-for="enabled_" required>
+                <!option value="1" @(Model.enabled_ == 1 ? "selected" : "")>開啟</!option>
+                <!option value="0" @(Model.enabled_ == 0 ? "selected" : "")>關閉</!option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="row mt-3">
+        <div class="col-sm-2 col-3 text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.LayoutFileObject ) )" class="col-form-label">首頁商品圖片</label>
+        </div>
+        <div class="col-sm-9 col-9">
+            <input class="form-control" type="file" asp-for="LayoutFileObject" required>
+            <label class="form-label text-danger mt-2" style="font-size: 13px">圖片限制為 [寬 1920 px * 高 1070 px]，如不符合系統將自動判定並進行裁切。如需調整，請重新上傳符合規定的圖片。</label>
+        </div>
+    </div>
+    
+    <div class="row mt-3">
+        <div class="col-sm-2 col-3 text-end">
+            <span class="text-danger">*</span>
+            <label for="@( nameof( Model.BannerFileObject ) )" class="col-form-label">商品橫幅圖片</label>
+        </div>
+        <div class="col-sm-9 col-9">
+            <input class="form-control" type="file" asp-for="BannerFileObject" required>
+            <label class="form-label text-danger mt-2" style="font-size: 13px">圖片限制為 [寬 1920 px * 高 1070 px]，如不符合系統將自動判定並進行裁切。如需調整，請重新上傳符合規定的圖片。</label>
+        </div>
+    </div>
+    
+    <br>
+    <!-- 確認或取消 -->
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary closeModal">取消</button>
+        <button type="submit" class="btn btn-outline-primary">確認</button>
+    </div>
+</form>

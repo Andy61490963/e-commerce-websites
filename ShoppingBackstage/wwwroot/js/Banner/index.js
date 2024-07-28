@@ -22,7 +22,6 @@ function loadList() {
 // 載入FilePond套件
 function LoadFilePond() {
     const FileObject = document.getElementById('FileObject');
-    console.log(FileObject)
     initFilePond(FileObject)
 }
 
@@ -70,7 +69,6 @@ $(document).on('click', '.addBanner', function () {
         $(".modal-title").html("新增輪播圖");
         $("#bannerModalBody").html(response);
         $("#bannerModal").modal({ backdrop: "static" }).modal('show');
-
         LoadFilePond();
     });
 })

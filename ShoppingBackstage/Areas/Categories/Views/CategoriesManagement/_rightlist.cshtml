@@ -1,0 +1,56 @@
+﻿@model List<CategoriesManagementViewModels>
+
+@{
+    ViewData["Title"] = "商品類別管理";
+    int index = 1;
+}
+
+<!-- 右邊的表格 -->
+<div class="table-responsive">
+    <table class="table table-hover align-middle">
+        <thead>
+        <tr>
+            <th class="col-1">#</th>
+            <th class="col-auto">類別外觀圖</th>
+            <th class="col-auto">類別橫幅圖</th>
+            <th class="col-2">名稱</th>
+            <th class="col-auto">是否顯示</th>
+            <th class="col-auto">動作</th>
+        </tr>
+        </thead>
+        <tbody id="rightSortable">
+        @foreach (var item in Model)
+        {
+            <tr data-id="@item.id_">
+                <td>@(index)</td>
+                <td>
+                    <a href="@Url.Content(item.LayoutServerFile?.file_path_)" data-pswp-width="1920" data-pswp-height="1070">
+                        <img style="width:250px; height:150px; object-fit:cover; padding-right:20px;" class="img-fluid" src="@(Url.Content(item.LayoutServerFile?.file_path_ ?? "~/images/default-banner.png"))" alt="Banner Image"/>
+                    </a>
+                </td>
+                <td>
+                    <a href="@Url.Content(item.BannerServerFile?.file_path_)" data-pswp-width="1920" data-pswp-height="1070">
+                        <img style="width:250px; height:150px; object-fit:cover; padding-right:20px;" class="img-fluid" src="@(Url.Content(item.BannerServerFile?.file_path_ ?? "~/images/default-banner.png"))" alt="Banner Image"/>
+                    </a>
+                </td>
+                <td>@item.name_</td>
+                <td class="@(item.enabled_ == StatusType.Enabled.ToInt() ? "text-success" : "text-danger")">
+                    @(item.enabled_ == StatusType.Enabled.ToInt() ? StatusType.Enabled.GetDescription() : StatusType.Closed.GetDescription())
+                </td>
+                <td>
+                    <button class="btn btn-sm editCategories" type="button" title="編輯" data-id="@item.id_">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <button class="btn btn-sm deleteCategories" type="button" title="刪除" data-id="@item.id_">
+                        <i class="bi bi-trash3"></i>
+                    </button>
+                    <button class="btn btn-sm moveBanner" type="button" title="移動" style="cursor: move;">
+                        <i class="bi bi-arrows-move"></i>
+                    </button>
+                </td>
+            </tr>
+            index++;
+        }
+        </tbody>
+    </table>
+</div>

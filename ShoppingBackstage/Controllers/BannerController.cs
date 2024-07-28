@@ -1,9 +1,6 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ShoppingBackstage.Models;
-using System.Diagnostics;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Shopping.lib.Enums;
 using ShoppingBackstage.BackstageService.Interface;
 using Shopping.lib.ViewModels;

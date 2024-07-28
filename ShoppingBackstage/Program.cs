@@ -5,6 +5,8 @@ using ShoppingBackstage.BackstageService.Interface;
 using ShoppingBackstage.BackstageService.Service;
 using ShoppingBackstage.Areas.Account.Services.Interface;
 using ShoppingBackstage.Areas.Account.Services.Service;
+using ShoppingBackstage.Areas.Categories.Services.Interface;
+using ShoppingBackstage.Areas.Categories.Services.Service;
 using ShoppingBackstage.Service.Interface;
 using ShoppingBackstage.Service.Service;
 
@@ -34,6 +36,7 @@ builder.Services
 
 // Area service
 builder.Services.AddScoped<IAccountManagementService, AccountManagementService>();
+builder.Services.AddScoped<ICategoriesManagementService, CategoriesManagementService>();
 
 // global service
 builder.Services.AddScoped<IUserService, UserService>();
@@ -80,6 +83,11 @@ app.MapAreaControllerRoute(
     name: "AccountArea",
     areaName: "Account",
     pattern: "Account/{controller=Home}/{action=Index}/{id?}");
+
+app.MapAreaControllerRoute(
+    name: "CategoriesArea",
+    areaName: "Categories",
+    pattern: "Categories/{controller=Home}/{action=Index}/{id?}");
 
 // Banner
 // app.MapControllerRoute(

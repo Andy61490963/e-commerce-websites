@@ -1,0 +1,41 @@
+﻿@model List<CategoriesManagementViewModels>
+
+@{
+    ViewData["Title"] = "商品類別管理";
+    int index = 1;
+}
+
+<!-- 左邊的表格 -->
+<div class="table-responsive">
+    <table class="table table-hover align-middle">
+        <thead>
+        <tr>
+            <th class="col-auto">#</th>
+            <th class="col-6">名稱</th>
+            <th class="col-auto">動作</th>
+        </tr>
+        </thead>
+        <tbody id="leftSortable">
+        @foreach (var item in Model)
+        {
+            <tr data-id="@item.id_">
+                <td>@(index)</td>
+                <td>@item.name_</td>
+                <td>
+                    <button class="btn btn-sm editCategories" type="button" title="編輯" data-id="@item.id_">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+                    <button class="btn btn-sm deleteCategories" type="button" title="刪除" data-id="@item.id_">
+                        <i class="bi bi-trash3"></i>
+                    </button>
+                    <button class="btn btn-sm moveLayout" type="button" title="移動" style="cursor: move;">
+                        <i class="bi bi-arrows-move"></i>
+                    </button>
+                </td>
+            </tr>
+            index++;
+        }
+        </tbody>
+    </table>
+</div>
+<br>

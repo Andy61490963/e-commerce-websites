@@ -32,4 +32,13 @@
     <_ContentIncludedByDefault Remove="wwwroot\template\script.js" />
   </ItemGroup>
 
+  <ItemGroup>
+    <AdditionalFiles Include="Areas\Categories\Views\CategoriesManagement\Index.cshtml" />
+    <AdditionalFiles Include="Areas\Categories\Views\CategoriesManagement\_function.cshtml" />
+    <AdditionalFiles Include="Areas\Categories\Views\CategoriesManagement\_inputmodal.cshtml" />
+    <AdditionalFiles Include="Areas\Categories\Views\CategoriesManagement\_list.cshtml" />
+    <AdditionalFiles Include="Areas\Categories\Views\_ViewImports.cshtml" />
+    <AdditionalFiles Include="Areas\Categories\Views\_ViewStart.cshtml" />
+  </ItemGroup>
+
 </Project>
