@@ -1,4 +1,4 @@
-﻿using ShoppingBackstage.Areas.Categories.ViewModels;
+﻿using Shopping.lib.ViewModels;
 
 namespace ShoppingBackstage.Areas.Categories.Services.Interface
 {

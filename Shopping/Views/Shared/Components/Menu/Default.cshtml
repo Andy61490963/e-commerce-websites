@@ -1,0 +1,39 @@
+﻿@model List<MenuViewModel>
+
+@{
+    void Children(string? parentId, int level)
+    {
+        var items = Model.Where(x => x.s0002_id_parent_ == parentId).ToList();
+        foreach (var item in items)
+        {
+            var url = !string.IsNullOrWhiteSpace(item.controller_) && item.controller_.StartsWith("http") ?
+            item.controller_ : Url.Action("", item.controller_, new { area = item.area_name_ });
+
+            var hasChildren = Model.Any(x => x.s0002_id_parent_ == item.id_);
+            if (hasChildren)
+            {
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle ms-0" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">@item.name_<svg class="bi" width="18" height="18"><use xlink:href="#chevron-down"></use></svg></a>
+                    <ul class="dropdown-menu">
+                        @{
+                            Children(item.id_, level + 1);
+                        }
+                    </ul>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a href="@(url)" class="dropdown-item fs-5 fw-medium">
+                        @item.name_
+                    </a>
+                </li>
+            }
+        }
+    }
+}
+
+@if (Model.Any())
+{
+    Children(null, 0);
+}

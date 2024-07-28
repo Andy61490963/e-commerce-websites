@@ -1,0 +1,41 @@
+﻿@using Shopping.lib.ViewModels;
+@model List<MenuViewModel>
+@{
+    void Children(string? parentId, int level)
+    {
+        var items = Model.Where(x => x.s0002_id_parent_ == parentId).ToList();
+        foreach (var item in items)
+        {
+            var url = !string.IsNullOrWhiteSpace(item.controller_) && item.controller_.StartsWith("http") ?
+            item.controller_ : Url.Action("", item.controller_, new { area = item.area_name_ });
+
+            var hasChildren = Model.Any(x => x.s0002_id_parent_ == item.id_);
+            if (hasChildren)
+            {
+                <li class="nav-group">
+                    <label class="nav-link nav-group-toggle">@item.name_</label>
+                    <ul class="nav-group-items">
+                        @{
+                            Children(item.id_, level + 1);
+                        }
+                    </ul>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item">
+                    <a href="@(url)" class="nav-link nav-group" title="@item.name_">
+                        @item.name_
+                    </a>
+                </li>
+            }
+        }
+    }
+}
+
+<ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+    @if (Model.Any())
+    {
+        Children(null, 0);
+    }
+</ul>

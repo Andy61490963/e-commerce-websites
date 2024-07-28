@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Shopping.ViewComponents
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -66,16 +68,16 @@
     <header id="header" class="site-header">
         <nav id="header-nav" class="navbar navbar-expand-lg px-3">
             <div class="container">
-                <a class="navbar-brand d-lg-none" href="index.html">
-                    <img src="images/main-logo.png" class="logo">
+                <a class="navbar-brand d-lg-none" href="~/">
+                    <img src="images/main-logo.png" class="logo" alt=""/>
                 </a>
                 <button class="navbar-toggler d-flex d-lg-none order-3 p-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="bi bi-list fs-1"></i>
                 </button>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar" aria-labelledby="bdNavbarOffcanvasLabel">
                     <div class="offcanvas-header px-4 pb-0">
-                        <a class="navbar-brand" href="index.html">
-                            <img src="images/main-logo.png" class="logo">
+                        <a class="navbar-brand"  href="~/">
+                            <img src="images/main-logo.png" class="logo" alt=""/>
                         </a>
                         <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas" aria-label="Close" data-bs-target="#bdNavbar"></button>
                     </div>
@@ -83,72 +85,11 @@
                         <ul id="navbar" class="navbar-nav w-100 d-flex justify-content-between align-items-center">
                             <ul class="list-unstyled d-lg-flex justify-content-start align-items-center">
                                 <li class="nav-item">
-                                    <a class="nav-link ms-0" href="about.html">首頁</a>
+                                    <a class="nav-link ms-0" href="~/">首頁</a>
                                 </li>
- 
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle ms-0" data-bs-auto-close="outside" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">所有商品<svg class="bi" width="18" height="18"><use xlink:href="#chevron-down"></use></svg></a>
-                                    <ul class="dropdown-menu">
-                                        <li class="dropend">
-                                            <button class="dropdown-item" data-bs-toggle="dropdown">鮮花 <svg class="bi" width="10" height="10"><use xlink:href="#angle-right"></use></svg></button>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <button herf="#" class="dropdown-item">A1</button>
-                                                    <button herf="#" class="dropdown-item">A2</button>
-                                                    <button herf="#" class="dropdown-item">A3</button>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropend">
-                                            <button class="dropdown-item" data-bs-toggle="dropdown">永生花 <svg class="bi" width="10" height="10"><use xlink:href="#angle-right"></use></svg></button>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <button herf="#" class="dropdown-item">B1</button>
-                                                    <button herf="#" class="dropdown-item">B2</button>
-                                                    <button herf="#" class="dropdown-item">B3</button>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropend">
-                                            <button class="dropdown-item" data-bs-toggle="dropdown">乾燥花 <svg class="bi" width="10" height="10"><use xlink:href="#angle-right"></use></svg></button>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <button herf="#" class="dropdown-item">C1</button>
-                                                    <button herf="#" class="dropdown-item">C2</button>
-                                                    <button herf="#" class="dropdown-item">C3</button>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropend">
-                                            <button class="dropdown-item" data-bs-toggle="dropdown">金莎花 <svg class="bi" width="10" height="10"><use xlink:href="#angle-right"></use></svg></button>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <button herf="#" class="dropdown-item">D1</button>
-                                                    <button herf="#" class="dropdown-item">D2</button>
-                                                    <button herf="#" class="dropdown-item">D3</button>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropend">
-                                            <button class="dropdown-item" data-bs-toggle="dropdown">鈔票花 <svg class="bi" width="10" height="10"><use xlink:href="#angle-right"></use></svg></button>
-                                            <ul class="dropdown-menu">
-                                                <li>
-                                                    <button herf="#" class="dropdown-item">鮮花</button>
-                                                    <button herf="#" class="dropdown-item">鮮花</button>
-                                                    <button herf="#" class="dropdown-item">鮮花</button>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        
-                                        <li><hr class="dropdown-divider"></li>
-                                        <li>
-                                            <button class="dropdown-item" herf="#">客製化 </button>
-                                        </li>
-
-                                    </ul>
-                                </li>
+                                @await Component.InvokeAsync(typeof( MenuViewComponent ))
                             </ul>
-                            <a class="navbar-brand d-none d-lg-block me-0" href="index.html">
+                            <a class="navbar-brand d-none d-lg-block me-0" href="~/">
                                 <img src="images/main-logo.png" class="logo">
                             </a>
                             <ul class="list-unstyled d-lg-flex justify-content-end align-items-center">

@@ -40,6 +40,7 @@ builder.Services.AddScoped<ICategoriesManagementService, CategoriesManagementSer
 
 // global service
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IMenuService, MenuService>();
 builder.Services.AddScoped<IDropDownService, DropDownService>();
 builder.Services.AddScoped<IBannerManagementService, BannerManagementService>();
 builder.Services.AddScoped<IAboutManagementService, AboutManagementService>();

@@ -4,8 +4,6 @@ using Shopping.lib.Enums;
 using Shopping.lib.ViewModels;
 using ShoppingBackstage.Controllers;
 using ShoppingBackstage.Areas.Categories.Services.Interface;
-using ShoppingBackstage.Areas.Categories.ViewModels;
-using X.PagedList;
 namespace ShoppingBackstage.Areas.Categories.Controllers;
 
 [Area("Categories")]

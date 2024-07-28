@@ -41,4 +41,8 @@
     <AdditionalFiles Include="Areas\Categories\Views\_ViewStart.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Categories\ViewModels\" />
+  </ItemGroup>
+
 </Project>

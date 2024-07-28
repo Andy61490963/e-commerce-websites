@@ -14,4 +14,8 @@
     <ProjectReference Include="..\ShoppingBackstage\ShoppingBackstage.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Shared\Components\User\Default.cshtml" />
+  </ItemGroup>
+
 </Project>

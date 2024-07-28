@@ -18,6 +18,7 @@ builder.Services
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IDashBoardService, DashBoardService>();
+builder.Services.AddScoped<IMenuService, MenuService>();
 
 var app = builder.Build();
 

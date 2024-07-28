@@ -1,8 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Shopping.lib.ViewModels;
-using X.PagedList;
-
-namespace ShoppingBackstage.Areas.Categories.ViewModels;
+namespace Shopping.lib.ViewModels;
 
 public class CategoriesViewModels
 {

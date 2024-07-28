@@ -1,11 +1,7 @@
 ﻿using System.Text;
 using Microsoft.Data.SqlClient;
 using Dapper;
-using Shopping.lib.Enums;
-using Shopping.lib.Helpers;
 using ShoppingBackstage.Areas.Categories.Services.Interface;
-using ShoppingBackstage.Areas.Categories.ViewModels;
-using Shopping.lib.Enums;
 using Shopping.lib.ViewModels;
 
 namespace ShoppingBackstage.Areas.Categories.Services.Service;
